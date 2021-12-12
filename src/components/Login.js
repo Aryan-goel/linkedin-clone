@@ -15,11 +15,16 @@ function Login() {
         </div>
       </Nav>
       <Section>
-      <Hero>
-        <h1>Welcome to your professional community</h1>
-        <img src="/images/login-hero.svg" alt="" />
-      </Hero>
-
+        <Hero>
+          <h1>Welcome to your professional community</h1>
+          <img src="/images/login-hero.svg" alt="" />
+        </Hero>
+        <Form>
+          <Google>
+              <img src="/images/google.svg" alt=""></img>
+                SignIn with google
+          </Google>
+        </Form>
       </Section>
     </Container>
   );
@@ -88,45 +93,71 @@ const Section = styled.section`
   padding: 60px 0;
   postition: relative;
   flex-wrap: wrap;
-  width:100%;
-  max-width:1128px;
-  align-items:center;
-  margin:auto;
-  @media(max-width:768px){
-    margin:auto;
-    min-height:0px;
+  width: 100%;
+  max-width: 1128px;
+  align-items: center;
+  margin: auto;
+  @media (max-width: 768px) {
+    margin: auto;
+    min-height: 0px;
   }
 `;
-const Hero=styled.div`
-width:100%;
-h1{
-  padding-bottom:0;
-  width:55%;
-  font-size:56px;
-  color:#2977c9;
-  font-weight:200;
-  line-height:70px;
-  @media(max-width:700px){
-    text-align:center;
-    font-size:18px;
-    width:100%;
-    line-height:2;
+const Hero = styled.div`
+  width: 100%;
+  h1 {
+    padding-bottom: 0;
+    width: 55%;
+    font-size: 56px;
+    color: #2977c9;
+    font-weight: 200;
+    line-height: 70px;
+    @media (max-width: 700px) {
+      text-align: center;
+      font-size: 18px;
+      width: 100%;
+      line-height: 2;
+    }
   }
-  
-}
-img{
-z-index:-1;
-width:700px;
-width:670px;
-position:absolute;
-bottom:-2px;
-right:-150px;
-@media(max-width:700px){
-  top:230px;
-  width:initial;
-  position:initial;
-  height:initial;
-}
+  img {
+    //z-index:-1;
+    width: 700px;
+    width: 670px;
+    position: absolute;
+    bottom: -2px;
+    right: -150px;
+    @media (max-width: 768px) {
+      top: 230px;
+      width: initial;
+      position: initial;
+      height: initial;
+    }
+  }
+`;
+const Form=styled.div`
+margin-top:100px;
+ width:408px;
+ @media(max-width:768px){
+   margin-top:20px;
+ }
+`
+const Google=styled.button`
 
-  }
+display:flex;
+padding-right:20px;
+justify-content:center;
+background-color:#fff;
+align-items:center;
+height:56px;
+width:100%;
+border-radius:28px;
+box-shadow:inset 0 0 0 1px rgb(0 0 0/ 60%),inset 0 0 0 2px rgb(0 0 0/ 0%),inset 0 0 0 1px rgb(0 0 0/ 0%);
+vertical-aign:middle;
+z-index:0;
+transition-duration:167px;
+font-size:15px;
+color:rgba(0,0,0,0.6);
+&: hover{
+  background-color:rgba(207,207,207,0.25);
+  color:rgba(0,0,0,0.75);
+}
 `
