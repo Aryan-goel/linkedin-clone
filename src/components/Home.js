@@ -45,6 +45,9 @@ p{
     color:#434649;
     font-weight:600;
 }
+@media(max-width:768px){
+    
+}
 
 
 `
