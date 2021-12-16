@@ -50,6 +50,22 @@ function Header() {
                 <span>Notifications</span>
               </a>
             </NavList>
+            <User>
+              <a>
+                <img src="/images/user.svg" alt=""></img>
+                <span>Me</span>
+                <img src="/images/down-icon.svg" alt=""></img>
+              </a>
+            </User>
+            <Work>
+              <a>
+                <img src="/images/nav-work.svg"></img>
+                <span>
+                  Work
+                  <img src="/images/down-icon.svg" alt=""></img>
+                </span>
+              </a>
+            </Work>
           </NavListWrap>
         </Nav>
       </Content>
@@ -140,10 +156,10 @@ const NavListWrap = styled.ul`
       bottom:0;
       left:0;
       position:absolute;
-      transition:transform 0.2s ease-in-out;
+      transition:transform 0.2ts ease-in-out;
       width:100%;
       border-color:rgba(0,0,0,0.9);
-
+      a
     }
   }
 `;
@@ -184,5 +200,21 @@ align-items:center;
     }
   }
 }
+
+`;
+const User = styled(NavList)`
+  a > img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  span{
+    display:flex;
+    align-items:center;
+  }
+`;
+const Work = styled(User)`
+border-left:2px solid rgba(0,0,0,0.08);
+
 
 `;
