@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import LeftSide from "./LeftSide";
+import Main from "./Main";
+import RightSide from "./RightSide";
 
 function Home() {
   return (
@@ -8,15 +11,15 @@ function Home() {
         <h4>
           <a>Hiring in a hurry? - </a>
         </h4>
-        <p>
-          {" "}
+         <p>
+
           Find talented in record time with Upwork and keep business moving
         </p>
       </Section>
       <Layout>
-        <div>Left side</div>
-        <div> main</div>
-        <div>Right side</div>
+        <LeftSide/>
+        <Main/>
+        <RightSide/>
       </Layout>
     </Container>
   );
@@ -59,5 +62,20 @@ const Section = styled.section`
 `;
 
 const Layout=styled.div`
+
+display:grid;
+grid-template-areas:"leftside main rightside";
+grid-template-columns:minmax(0,5fr) minmax(0,12fr) minmax(300px,7fr);
+column-gap:25px;
+row-gap:25px;
+/* grid-template-row:auto; */
+margin:25px 0;
+@media(max-width:768px){
+  display:flex;
+  flex-direction:column;
+  padding:0 5px;
+
+}
+
 `
 export default Home;
