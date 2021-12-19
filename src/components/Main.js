@@ -12,6 +12,6 @@ function Main() {
 export default Main;
 
 const Container=styled.div`
-grid-area:Main;
+grid-area:main;
 
 `
