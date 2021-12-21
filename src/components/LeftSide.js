@@ -47,6 +47,7 @@ function LeftSide() {
         <a>
           <span>Discover More</span>
         </a>
+        
       </CommunityCard>
     </Container>
   );
