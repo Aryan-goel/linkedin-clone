@@ -4,29 +4,31 @@ import styled from "styled-components";
 function Main() {
   return (
     <Container>
-      <ShareBox>share</ShareBox>
-      <div>
-        <img src="/images/user.svg" alt="" />
-        <button>Start a post</button>
-      </div>
-      <div>
-        <button>
-          <img src="/images/photo-icon.png " alt="" width="20px"/>
-          <span>Photo</span>
-        </button>
-        <button>
-          <img src="/images/video.png" alt=""  width="20px"/>
-          <span> Video</span>
-        </button>
-        <button>
-          <img src="/images/events.svg" alt="" width="20px" />
-          <span> Event</span>
-        </button>
-        <button>
-          <img src="/images/article.png" alt="" width="20px"/>
-          <span>Write an article</span>
-        </button>
-      </div>
+      <ShareBox>
+        share
+        <div>
+          <img src="/images/user.svg" alt="" />
+          <button>Start a post</button>
+        </div>
+        <div>
+          <button>
+            <img src="/images/photos.svg " alt=""  />
+            <span>Photo</span>
+          </button>
+          <button>
+            <img src="/images/videos.svg" alt=""  />
+            <span> Video</span>
+          </button>
+          <button>
+            <img src="/images/event.svg" alt=""  />
+            <span> Event</span>
+          </button>
+          <button>
+            <img src="/images/articles.svg" alt=""  />
+            <span>Write an article</span>
+          </button>
+        </div>
+      </ShareBox>
     </Container>
   );
 }
@@ -51,5 +53,31 @@ const ShareBox = styled(CommonCard)`
   flex-direction: column;
   color: #958b7b;
   margin: 0 0 8px;
-  ]background: white;
+  background: white;
+  div {
+    button {
+      outline: none;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 48px;
+      background: transparent;
+      border:none;
+      display:flex;
+      align-items:center;
+      font-weight:600;
+
+
+    }
+    &:first-child{
+        display:flex;
+        align-items:center;
+        padding:8px,16px,0px,16px;
+        img{
+            width:48px;
+            border-radius:50%;
+            margin-right:8px;
+        }
+    }
+  }
 `;
