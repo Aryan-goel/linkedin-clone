@@ -12,23 +12,40 @@ function Main() {
         </div>
         <div>
           <button>
-            <img src="/images/photos.svg " alt=""  />
+            <img src="/images/photos.svg " alt="" />
             <span>Photo</span>
           </button>
           <button>
-            <img src="/images/videos.svg" alt=""  />
+            <img src="/images/videos.svg" alt="" />
             <span> Video</span>
           </button>
           <button>
-            <img src="/images/event.svg" alt=""  />
+            <img src="/images/event.svg" alt="" />
             <span> Event</span>
           </button>
           <button>
-            <img src="/images/articles.svg" alt=""  />
+            <img src="/images/articles.svg" alt="" />
             <span>Write an article</span>
           </button>
         </div>
       </ShareBox>
+      <div>
+        <Article>
+          <SharedActor>
+            <a>
+              <img src="/images/user.svg" alt="" />
+              <div>
+                <span>Title</span>
+                <span>Info</span>
+                <span>Date </span>
+              </div>
+            </a>
+            <button>
+              <img src="/images/elipsis.svg" alt=""/>
+            </button>
+          </SharedActor>
+        </Article>
+      </div>
     </Container>
   );
 }
@@ -62,31 +79,50 @@ const ShareBox = styled(CommonCard)`
       line-height: 1.5;
       min-height: 48px;
       background: transparent;
-      border:none;
-      display:flex;
-      align-items:center;
-      font-weight:600;
-
-
+      border: none;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
     }
-    &:first-child{
-        display:flex;
-        align-items:center;
-        padding:8px,16px,0px,16px;
-        img{
-            width:48px;
-            border-radius:50%;
-            margin-right:8px;
+    &:first-child {
+      display: flex;
+      align-items: center;
+      padding: 8px, 16px, 0px, 16px;
+      img {
+        width: 48px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      button {
+        margin: 4px 0;
+        flex-grow: 1;
+        border-radius: 35px;
+        padding-left: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background-color: white;
+        text-align: left;
+      }
+    }
+    &:nth-child(2) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding-bottom: 4px;
+      button {
+        img {
+          width: 32px;
+          margin: 0 4px 0 -2px;
         }
-        button{
-            margin:4px 0;
-            flex-grow:1;
-            border-radius:35px;
-            padding-left:16px;
-            border:1px solid rgba(0,0,0,0.15);
-            background-color:white;
-            text-align:left;
+        span {
+          color: #70b5f9;
         }
+      }
     }
   }
 `;
+const Article = styled(CommonCard)`
+  padding: 0;
+  margin: 0 0 8px;
+  overflow: visible;
+`;
+const SharedActor = styled.div``;
