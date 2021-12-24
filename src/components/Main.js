@@ -68,6 +68,7 @@ function Main() {
               <a>2 comments</a>
             </li>
           </SocialCounts>
+          <SocialActions>
           <button>
             <img src="/images/like.svg" alt=""/>
             <span>Like</span>
@@ -76,6 +77,16 @@ function Main() {
             <img src="/images/comments.svg" alt=""/>
             <span>Comments</span>
           </button>
+          <button>
+            <img src="/images/share.svg" alt=""/>
+            <span>Share</span>
+            
+          </button>
+          <button>
+            <img src="/images/send.svg" alt=""/>
+            <span>Send</span>
+          </button>
+          </SocialActions>
         </Article>
       </div>
     </Container>
@@ -241,3 +252,24 @@ const SocialCounts = styled.ul`
     }
   }
 `;
+const SocialActions=styled.div`
+align-items:center;
+display:flex;
+justify-content:flex-start;
+margin:0;
+min-height:40px;
+padding:4px 8px;
+button{
+  display:inline-flex;
+  align-items:center;
+  padding:8px;
+  color:#0a66c2; 
+
+
+  @media(min-width:769px){
+    span{
+       margin-left:6px;
+    }
+  }
+}
+`
