@@ -41,9 +41,18 @@ function Main() {
               </div>
             </a>
             <button>
-              <img src="/images/elipsis.svg" alt="" />
+              <img src="/images/elipsis.svg" alt="" width="32px" />
             </button>
           </SharedActor>
+          <Description>
+            Description
+          </Description>
+          <SharedImage>
+            <a>
+              <img src="/images/shared.jpg" alt=""/>
+            </a>
+          </SharedImage>
+
         </Article>
       </div>
     </Container>
@@ -132,44 +141,66 @@ const SharedActor = styled.div`
   margin-bottom: 8px;
   align-items: center;
   display: flex;
-  a{
-    margin-right:12px;
-    flex-grow:1;
-    overflow:hidden;
-    display:flex;
-    text-decoration:none;
-    img{
-      width:48px;
-      height:48px;
-
+  a {
+    margin-right: 12px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    text-decoration: none;
+    img {
+      width: 48px;
+      height: 48px;
     }
-    &>div{
-      display:flex;
-      flex-direction:column;
-      flex-grow:1;
-      flex-basis:0;
-      margin-left:8px;
-      overflow:hidden;
-      span{
-        text-align:left;
-        &:first-child{
-          font-size:14px;
-          font-weight:700;
-          color:rgba(0,0,0,1);
-
+    & > div {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-basis: 0;
+      margin-left: 8px;
+      overflow: hidden;
+      span {
+        text-align: left;
+        &:first-child {
+          font-size: 14px;
+          font-weight: 700;
+          color: rgba(0, 0, 0, 1);
         }
-        &:nth-child(n+1){
-          font-size:14px;
-          color:rgba(0,0,0,0.6);
+        &:nth-child(n + 1) {
+          font-size: 14px;
+          color: rgba(0, 0, 0, 0.6);
         }
       }
-
     }
-    
+  }
+  button {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    background: transparent;
+    border: none;
+    outline: none;
 
   }
-  button{
-    position:absolute;
-    
-    }
+
+
 `;
+const Description=styled.div`
+padding:0 16px;
+overflow:hidden;
+color:rgba(0,0,0,0.9);
+font-size:14px;
+text-align:left;
+`
+const SharedImage=styled.div`
+margin-top:8px;
+width:100%;
+display:block;
+position:relative;
+background-color:#f9fafb;
+img{
+  object-fit:contain;
+  width:100%;
+  height:100%;
+  
+}
+`
