@@ -5,4 +5,4 @@ import userReducer from "./userReducer";
 const rootReducers=combineReducers({
      userState:userReducer,
 })
-export default userReducer;
+export default rootReducers;

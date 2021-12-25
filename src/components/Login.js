@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import React from "react";
+import { connect } from "react-redux";
 
 function Login() {
   return (
@@ -21,8 +22,8 @@ function Login() {
         </Hero>
         <Form>
           <Google>
-              <img src="/images/google.svg" alt=""></img>
-                SignIn with google
+            <img src="/images/google.svg" alt=""></img>
+            SignIn with google
           </Google>
         </Form>
       </Section>
@@ -30,7 +31,7 @@ function Login() {
   );
 }
 
-export default Login;
+
 const Container = styled.div`
   padding: 0px;
 `;
@@ -133,31 +134,37 @@ const Hero = styled.div`
     }
   }
 `;
-const Form=styled.div`
-margin-top:100px;
- width:408px;
- @media(max-width:768px){
-   margin-top:20px;
- }
-`
-const Google=styled.button`
-
-display:flex;
-padding-right:20px;
-justify-content:center;
-background-color:#fff;
-align-items:center;
-height:56px;
-width:100%;
-border-radius:28px;
-box-shadow:inset 0 0 0 1px rgb(0 0 0/ 60%),inset 0 0 0 2px rgb(0 0 0/ 0%),inset 0 0 0 1px rgb(0 0 0/ 0%);
-vertical-aign:middle;
-z-index:0;
-transition-duration:167px;
-font-size:15px;
-color:rgba(0,0,0,0.6);
-&: hover{
-  background-color:rgba(207,207,207,0.25);
-  color:rgba(0,0,0,0.75);
-}
-`
+const Form = styled.div`
+  margin-top: 100px;
+  width: 408px;
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+`;
+const Google = styled.button`
+  display: flex;
+  padding-right: 20px;
+  justify-content: center;
+  background-color: #fff;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 1px rgb(0 0 0/ 60%), inset 0 0 0 2px rgb(0 0 0/ 0%),
+    inset 0 0 0 1px rgb(0 0 0/ 0%);
+  vertical-align: middle;
+  z-index: 0;
+  transition-duration: 167px;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    background-color: rgba(207, 207, 207, 0.25);
+    color: rgba(0, 0, 0, 0.75);
+  }
+`;
+ const mapStateToProps=(state)=>{
+   return {};
+ };
+ const mapDispatchToProps=(dispatch) =>({});
+export default connect(mapStateToProps,mapDispatchToProps)(Login);
+//export default Login;
