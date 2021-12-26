@@ -1,7 +1,9 @@
+
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 
-function Header() {
+function Header(props) {
   return (
     <Container>
       <Content>
@@ -52,16 +54,18 @@ function Header() {
             </NavList>
             <User>
               <a>
-                <img src="/images/user.svg" alt=""></img>
-                <span>Me
-                <img src="/images/down-icon.svg" alt=""></img>
+                {props.user && props.user.photoURL ? (
+                  <img src={props.user.photoURL} alt="" />
+                ) : (
+                  <img src="/images/user.svg" alt=""></img>
+                )}
+                <span>
+                  Me
+                  <img src="/images/down-icon.svg" alt=""></img>
                 </span>
-                
               </a>
               <SignOut>
-                <a>
-                  SignOut
-                </a>
+                <a>SignOut</a>
               </SignOut>
             </User>
             <Work>
@@ -80,7 +84,7 @@ function Header() {
   );
 }
 
-export default Header;
+
 const Container = styled.div`
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -209,21 +213,18 @@ align-items:center;
 }
 
 `;
-const SignOut=styled.div`
-position:absolute;
-top:45px;
-background:white;
-border-radius:0 0 5px 5px; 
-width:100px;
-height:40px;
-font-size:16px;
-transition-duration:167ms;
-text-align:center;
-display:none;
-
-
-
-`
+const SignOut = styled.div`
+  position: absolute;
+  top: 45px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+`;
 
 const User = styled(NavList)`
   a > img {
@@ -231,21 +232,27 @@ const User = styled(NavList)`
     height: 24px;
     border-radius: 50%;
   }
-  span{
-    display:flex;
-    align-items:center;
+  span {
+    display: flex;
+    align-items: center;
   }
-  &:hover{
-    ${SignOut}{
-      align-items:center;
-      display:flex;
-      justify-content:center;
+  &:hover {
+    ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
     }
   }
 `;
 const Work = styled(User)`
-border-left:2px solid rgba(0,0,0,0.08);
-
-
-
+  border-left: 2px solid rgba(0, 0, 0, 0.08);
 `;
+
+const mapStateToProps=(state)=>{
+  return {
+    user: state.userState.user,
+  };
+};
+const mapDispatchToProps=(dispatch)=>({});
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
+//export default Header;
