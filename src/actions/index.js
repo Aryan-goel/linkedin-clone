@@ -11,6 +11,7 @@ export function signinAPI() {
       .signInWithPopup(provider)
       .then((payload) => {
         dispatch(setUser(payload.user));
+        //console.log(payload);
       })
       .catch((error) => alert(error.message));
   };
