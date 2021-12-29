@@ -18,6 +18,16 @@ function PostModal(props) {
             <span>Name</span>
           </Userinfo>
         </Sharedcontent>
+        <Sharedcreation>
+          <Attachassets>
+            <AssetButton>
+              <img src="/images/share-image.svg" alt=""/>
+            </AssetButton>
+            <AssetButton>
+              <img src="/images/share-video.svg" alt=""/>
+            </AssetButton>
+          </Attachassets>
+        </Sharedcreation>
       </Content>
     </Container>
   );
@@ -93,5 +103,25 @@ const Userinfo = styled.div`
     border-radius: 50%;
   }
   span {
+    font-weight:600;
+    font-size:16px;
+    line-height:1.5;
+    margin-left:5px; 
+     
   }
 `;
+const Sharedcreation=styled.div`
+display:flex;
+justify-content:space-between;
+padding:12px 24px 12px 16px;
+
+`
+const AssetButton=styled.button`
+display:flex;
+align-items:center;
+height:40px;
+min-width:auto;
+color:rgba(0,0,0,0.5);
+`
+const Attachassets=styled.div`
+`
