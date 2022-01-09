@@ -1,8 +1,10 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 import React from "react";
 
 function PostModal(props) {
+  const [editorText,setEditorText]=useState("");
   return (
     <Container>
       <Content>
@@ -26,7 +28,17 @@ function PostModal(props) {
             <AssetButton>
               <img src="/images/share-video.svg" alt=""/>
             </AssetButton>
+            
           </Attachassets>
+          <Sharecomment>
+          <AssetButton>
+              <img src="/images/share-comment.svg" alt=""/>
+              anyone
+            </AssetButton>
+          </Sharecomment>
+          <PostButton>
+            Post
+          </PostButton>
         </Sharedcreation>
       </Content>
     </Container>
@@ -75,8 +87,10 @@ const Header = styled.div`
     width: 40px;
     min-width: auto;
     color: rgba(0, 0, 0, 0.15);
+
     svg {
       pointer-events: none;
+      
     }
   }
 `;
@@ -124,4 +138,36 @@ min-width:auto;
 color:rgba(0,0,0,0.5);
 `
 const Attachassets=styled.div`
+align-items:center;
+display:flex;
+padding-right:8px;
+${AssetButton}{
+  width:40px;
+  
+}
+
+`
+const Sharecomment=styled.div`
+
+padding-left:8px;
+margin-right:auto;
+border-left:1px solid rgba(0,0,0,0.15);
+
+${AssetButton}{
+  margin-right:5px;
+  
+}
+`
+const PostButton=styled.button`
+min-width:60px;
+border-radius:20px;
+padding-left:16px;
+padding-right:16px;
+background:#0a66c2;
+color:white;
+&:hover{
+  background:#004182;
+}
+
+
 `
