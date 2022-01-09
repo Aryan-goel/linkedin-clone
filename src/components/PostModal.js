@@ -4,44 +4,57 @@ import { useState } from "react";
 import React from "react";
 
 function PostModal(props) {
-  const [editorText,setEditorText]=useState("");
+  const [editorText, setEditorText] = useState("");
+  const reset = (e) => {
+    setEditorText("");
+    props.handelCLick(e);
+  };
   return (
-    <Container>
-      <Content>
-        <Header>
-          <h2>Create a post</h2>
-          <button>
-            <img src="/images/close-icon.svg" alt="" />{" "}
-          </button>
-        </Header>
-        <Sharedcontent>
-          <Userinfo>
-            <img src="/images/user.svg" alt="" />
-            <span>Name</span>
-          </Userinfo>
-        </Sharedcontent>
-        <Sharedcreation>
-          <Attachassets>
-            <AssetButton>
-              <img src="/images/share-image.svg" alt=""/>
-            </AssetButton>
-            <AssetButton>
-              <img src="/images/share-video.svg" alt=""/>
-            </AssetButton>
-            
-          </Attachassets>
-          <Sharecomment>
-          <AssetButton>
-              <img src="/images/share-comment.svg" alt=""/>
-              anyone
-            </AssetButton>
-          </Sharecomment>
-          <PostButton>
-            Post
-          </PostButton>
-        </Sharedcreation>
-      </Content>
-    </Container>
+    <>
+      {props.showModal === "open" && (
+        <Container>
+          <Content>
+            <Header>
+              <h2>Create a post</h2>
+              <button onClick={(event) => reset(event)}>
+                <img src="/images/close-icon.svg" alt="" />{" "}
+              </button>
+            </Header>
+            <Sharedcontent>
+              <Userinfo>
+                <img src="/images/user.svg" alt="" />
+                <span>Name</span>
+              </Userinfo>
+              <Editor>
+                <textarea
+                  value={editorText}
+                  onChange={(e) => setEditorText(e.target.value)}
+                  placeholder="what do you want to talk about?"
+                  autoFocus={true}
+                ></textarea>
+              </Editor>
+            </Sharedcontent>
+            <Sharedcreation>
+              <Attachassets>
+                <AssetButton>
+                  <img src="/images/share-image.svg" alt="" />
+                </AssetButton>
+                <AssetButton>
+                  <img src="/images/share-video.svg" alt="" />
+                </AssetButton>
+              </Attachassets>
+              <Sharecomment>
+                <AssetButton>
+                  <img src="/images/share-comment.svg" alt="" />
+                  anyone
+                </AssetButton>
+              </Sharecomment>
+              <PostButton>Post</PostButton>
+            </Sharedcreation>
+          </Content>
+        </Container>
+      )}
+    </>
   );
 }
 
@@ -88,9 +101,9 @@ const Header = styled.div`
     min-width: auto;
     color: rgba(0, 0, 0, 0.15);
 
-    svg {
+    svg,
+    img {
       pointer-events: none;
-      
     }
   }
 `;
@@ -117,57 +130,63 @@ const Userinfo = styled.div`
     border-radius: 50%;
   }
   span {
-    font-weight:600;
-    font-size:16px;
-    line-height:1.5;
-    margin-left:5px; 
-     
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-left: 5px;
   }
 `;
-const Sharedcreation=styled.div`
-display:flex;
-justify-content:space-between;
-padding:12px 24px 12px 16px;
+const Sharedcreation = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px 12px 16px;
+`;
+const AssetButton = styled.button`
+  display: flex;
+  align-items: center;
+  height: 40px;
+  min-width: auto;
+  color: rgba(0, 0, 0, 0.5);
+`;
+const Attachassets = styled.div`
+  align-items: center;
+  display: flex;
+  padding-right: 8px;
+  ${AssetButton} {
+    width: 40px;
+  }
+`;
+const Sharecomment = styled.div`
+  padding-left: 8px;
+  margin-right: auto;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
 
-`
-const AssetButton=styled.button`
-display:flex;
-align-items:center;
-height:40px;
-min-width:auto;
-color:rgba(0,0,0,0.5);
-`
-const Attachassets=styled.div`
-align-items:center;
-display:flex;
-padding-right:8px;
-${AssetButton}{
-  width:40px;
-  
-}
-
-`
-const Sharecomment=styled.div`
-
-padding-left:8px;
-margin-right:auto;
-border-left:1px solid rgba(0,0,0,0.15);
-
-${AssetButton}{
-  margin-right:5px;
-  
-}
-`
-const PostButton=styled.button`
-min-width:60px;
-border-radius:20px;
-padding-left:16px;
-padding-right:16px;
-background:#0a66c2;
-color:white;
-&:hover{
-  background:#004182;
-}
-
-
-`
+  ${AssetButton} {
+    margin-right: 5px;
+  }
+`;
+const PostButton = styled.button`
+  min-width: 60px;
+  border-radius: 20px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: #0a66c2;
+  color: white;
+  &:hover {
+    background: #004182;
+  }
+`;
+const Editor = styled.div`
+  padding: 12px 24px 24px;
+  textarea {
+    width: 100%;
+    min-height: 100px;
+    resize: none;
+  }
+  input {
+    width: 100%;
+    height: 35px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+`;
